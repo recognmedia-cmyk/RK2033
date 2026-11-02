@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#202321">
+  <meta name="description" content="Rajesh Kumar — Creative & Brand Consultant. Branding, design, video production and commercial creative solutions.">
+  <title>Rajesh Kumar — Creative & Brand Consultant</title>
+  <style>
+    :root {
+      --bg: #202321;
+      --bg-soft: #282c29;
+      --panel: #303531;
+      --text: #f1f0e9;
+      --muted: #a9aea7;
+      --gold: #d9b65f;
+      --line: rgba(235,232,215,.15);
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: auto; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .19em; font-size: .72rem; font-weight: 700; }
+    .gold { color: var(--gold); }
+    header {
+      position: fixed; inset: 0 0 auto; z-index: 20; background: rgba(32,35,33,.88);
+      backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);
+    }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 800; letter-spacing: .08em; font-size: 1rem; }
+    .brand span { color: var(--gold); }
+    .navlinks { display: flex; gap: 30px; align-items: center; color: var(--muted); font-size: .83rem; }
+    .navlinks a:hover { color: var(--gold); }
+    .nav-cta { border: 1px solid var(--gold); color: var(--gold); padding: 9px 16px; border-radius: 2px; }
+    .menu { display: none; background: none; color: var(--text); border: 1px solid var(--line); padding: 8px 12px; }
+    .hero { min-height: 760px; padding: 170px 0 100px; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero:before {
+      content: ""; position: absolute; width: 560px; height: 560px; border-radius: 50%;
+      right: -130px; top: 100px; background: radial-gradient(circle, rgba(217,182,95,.13), transparent 68%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; position: relative; }
+    h1 { font-size: clamp(3.2rem, 7vw, 6.8rem); line-height: .99; letter-spacing: -.065em; margin: 22px 0 26px; font-weight: 650; }
+    h1 span { color: var(--gold); }
+    .hero-copy { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+    .btn { display: inline-flex; padding: 13px 21px; border: 1px solid var(--gold); color: var(--bg); background: var(--gold); font-weight: 700; font-size: .83rem; transition: .2s; }
+    .btn:hover { background: transparent; color: var(--gold); }
+    .btn.outline { color: var(--text); background: transparent; border-color: var(--line); }
+    .btn.outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-art { min-height: 440px; border: 1px solid var(--line); position: relative; background:
+      linear-gradient(145deg, rgba(217,182,95,.13), transparent 45%),
+      linear-gradient(35deg, #353b36, #222623 65%); display: grid; place-items: center; overflow: hidden; }
+    .hero-art:before, .hero-art:after { content: ""; position: absolute; border: 1px solid rgba(217,182,95,.35); transform: rotate(35deg); }
+    .hero-art:before { width: 270px; height: 370px; }
+    .hero-art:after { width: 210px; height: 310px; }
+    .monogram { font-size: clamp(5rem, 12vw, 9rem); letter-spacing: -.1em; font-weight: 800; color: rgba(241,240,233,.9); z-index: 1; }
+    .art-caption { position: absolute; bottom: 20px; left: 22px; color: var(--muted); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+    section { padding: 110px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 48px; }
+    h2 { font-size: clamp(2.3rem, 4.6vw, 4.2rem); line-height: 1.04; letter-spacing: -.05em; margin: 12px 0 0; font-weight: 600; }
+    .section-intro { max-width: 430px; color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; }
+    .about-statement { font-size: clamp(1.6rem, 3vw, 2.55rem); line-height: 1.25; letter-spacing: -.035em; margin: 0; }
+    .about-text { color: var(--muted); max-width: 650px; }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 36px; }
+    .stat { border-top: 1px solid var(--gold); padding-top: 15px; }
+    .stat strong { display: block; font-size: 2rem; color: var(--gold); }
+    .stat span { color: var(--muted); font-size: .78rem; }
+    .services { display: grid; grid-template-columns: repeat(3,1fr); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+    .service { padding: 28px; min-height: 205px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .25s; }
+    .service:hover { background: var(--bg-soft); }
+    .service-no { color: var(--gold); font-size: .72rem; letter-spacing: .15em; }
+    .service h3 { font-size: 1.25rem; margin: 26px 0 8px; font-weight: 550; }
+    .service p { color: var(--muted); font-size: .88rem; margin: 0; }
+    .work-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .work-card { background: var(--bg-soft); border: 1px solid var(--line); overflow: hidden; }
+    .work-image { aspect-ratio: 16/10; display: grid; place-items: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg,#424942,#242925 70%); }
+    .work-image:after { content: "ADD PROJECT IMAGE"; color: rgba(241,240,233,.45); font-size: .7rem; letter-spacing: .18em; }
+    .work-image img { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+    .work-info { padding: 21px 23px 24px; }
+    .work-info small { color: var(--gold); text-transform: uppercase; letter-spacing: .14em; font-size: .68rem; }
+    .work-info h3 { margin: 7px 0 4px; font-size: 1.25rem; }
+    .work-info p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .experience { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+    .timeline { border-top: 1px solid var(--line); }
+    .role { padding: 23px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 130px 1fr; gap: 22px; }
+    .role time { color: var(--gold); font-size: .82rem; }
+    .role h3 { margin: 0 0 4px; font-size: 1.1rem; }
+    .role p { color: var(--muted); margin: 0; font-size: .86rem; }
+    .approach { background: var(--bg-soft); }
+    .approach-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 25px; margin-top: 50px; }
+    .step { border-top: 1px solid var(--gold); padding-top: 18px; }
+    .step b { color: var(--gold); font-size: .75rem; letter-spacing: .15em; }
+    .step h3 { margin: 18px 0 7px; font-size: 1.1rem; }
+    .step p { color: var(--muted); font-size: .85rem; margin: 0; }
+    .contact { padding: 120px 0; }
+    .contact-box { display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+    .contact h2 { max-width: 720px; }
+    .contact-note { color: var(--muted); max-width: 380px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .76rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+    @media (max-width: 800px) {
+      .navlinks { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 22px 24px; background: var(--bg); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      .navlinks.open { display: flex; } .menu { display: block; }
+      .hero { min-height: auto; padding: 140px 0 80px; }
+      .hero-grid, .about-grid, .experience { grid-template-columns: 1fr; gap: 42px; }
+      .hero-art { min-height: 300px; }
+      .section-head, .contact-box { display: block; }
+      .section-intro { margin-top: 20px; }
+      .services { grid-template-columns: repeat(2,1fr); }
+      .approach-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-note { margin: 22px 0; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 34px, var(--max)); }
+      .services, .work-grid, .approach-grid { grid-template-columns: 1fr; }
+      section { padding: 78px 0; }
+      .stats { gap: 10px; }
+      .stat strong { font-size: 1.55rem; }
+      .role { grid-template-columns: 1fr; gap: 5px; }
+      .footer-row { display: block; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">RAJESH<span>.</span></a>
+    <button class="menu" aria-label="Toggle navigation" onclick="document.querySelector('.navlinks').classList.toggle('open')">MENU</button>
+    <nav class="navlinks">
+      <a href="#about">About</a><a href="#services">Expertise</a><a href="#work">Selected work</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Creative thinking · Practical execution</div>
+        <h1>Ideas into<br><span>impact.</span></h1>
+        <p class="hero-copy">I'm Rajesh Kumar — a Creative & Brand Consultant bringing together strategy, design and production to build meaningful brand experiences across media and spaces.</p>
+        <div class="actions"><a class="btn" href="#work">Explore selected work</a><a class="btn outline" href="#contact">Start a conversation</a></div>
+      </div>
+      <div class="hero-art" aria-label="Portfolio visual placeholder">
+        <div class="monogram">RK</div><div class="art-caption">Creative & Brand Consultant</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">01 / About</div><h2>Creative vision.<br><span class="gold">Grounded thinking.</span></h2></div>
+        <p class="section-intro">A hands-on creative professional who connects the big picture with the details that make an idea work.</p></div>
+      <div class="about-grid">
+        <p class="about-statement">I help businesses turn complex requirements into clear, compelling creative solutions.</p>
+        <div><p class="about-text">With experience spanning graphic design, branding, video production, visualisation, signage and commercial environments, I work across disciplines to bring ideas from the first conversation to final execution. I enjoy solving the creative challenge as much as shaping the process around it.</p>
+          <div class="stats">
+            <div class="stat"><strong>19+</strong><span>Years in graphic design</span></div>
+            <div class="stat"><strong>13+</strong><span>Years in video & post-production</span></div>
+            <div class="stat"><strong>10+</strong><span>Years across branding & spaces</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">02 / Expertise</div><h2>What I bring<br><span class="gold">to the table.</span></h2></div>
+        <p class="section-intro">Flexible creative support — from a focused design requirement to coordinated, end-to-end execution.</p></div>
+      <div class="services">
+        <article class="service"><span class="service-no">01</span><h3>Branding & Identity</h3><p>Brand direction, identity systems, campaign thinking and visual consistency.</p></article>
+        <article class="service"><span class="service-no">02</span><h3>Creative Design</h3><p>Campaign design, communication materials, digital and print creative.</p></article>
+        <article class="service"><span class="service-no">03</span><h3>Video & Production</h3><p>Video concepts, production coordination, editing, compositing and motion.</p></article>
+        <article class="service"><span class="service-no">04</span><h3>Commercial Interiors</h3><p>Retail environments, décor concepts, fixtures and visual space planning.</p></article>
+        <article class="service"><span class="service-no">05</span><h3>Signage & Wayfinding</h3><p>Signage concepts, site coordination, fabrication support and implementation.</p></article>
+        <article class="service"><span class="service-no">06</span><h3>Corporate Media</h3><p>Corporate films, presentations, visual communication and media solutions.</p></article>
+        <article class="service"><span class="service-no">07</span><h3>Recce & Supervision</h3><p>Site visits, requirement mapping, execution planning and on-ground coordination.</p></article>
+        <article class="service"><span class="service-no">08</span><h3>Creative Consulting</h3><p>Brainstorming, practical recommendations, vendor coordination and cost-aware solutions.</p></article>
+        <article class="service"><span class="service-no">09</span><h3>Integrated Campaigns</h3><p>Connecting creative, production, spaces and media into one coherent experience.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">03 / Selected work</div><h2>A few ways ideas<br><span class="gold">come to life.</span></h2></div>
+        <p class="section-intro">Replace these sample tiles with your strongest projects. Use a mix of stills, case studies and video links.</p></div>
+      <div class="work-grid">
+        <article class="work-card"><div class="work-image"><!-- Replace with: <img src="assets/project-branding.jpg" alt="Brand identity project"> --></div><div class="work-info"><small>Branding / Identity</small><h3>Brand identity & communication</h3><p>Strategy translated into a clear visual language.</p></div></article>
+        <article class="work-card"><div class="work-image"><!-- Replace with: <img src="assets/project-film.jpg" alt="Video production project"> --></div><div class="work-info"><small>Video / Production</small><h3>Film, motion & visual storytelling</h3><p>From concept and shoot coordination to post-production.</p></div></article>
+        <article class="work-card"><div class="work-image"><!-- Replace with: <img src="assets/project-interior.jpg" alt="Commercial interior project"> --></div><div class="work-info"><small>Commercial spaces</small><h3>Retail environments & interiors</h3><p>Bringing brand experience into physical spaces.</p></div></article>
+        <article class="work-card"><div class="work-image"><!-- Replace with: <img src="assets/project-signage.jpg" alt="Signage project"> --></div><div class="work-info"><small>Signage / Execution</small><h3>Signage & on-ground solutions</h3><p>Coordinated creative solutions built for real-world use.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">04 / Experience</div><h2>Experience across<br><span class="gold">the creative process.</span></h2></div>
+        <p class="section-intro">A mix of creative craft, production understanding and collaborative problem-solving.</p></div>
+      <div class="experience">
+        <div><div class="eyebrow">How I work</div><p class="about-text">I can lead the creative direction, work hands-on with the tools, guide teams and coordinate with clients or vendors to keep the work moving from idea to delivery.</p></div>
+        <div class="timeline">
+          <div class="role"><time>Aug 2024 — Present</time><div><h3>Creative Consultant</h3><p>Adinn Advertising</p><p>Creative consultation, campaign thinking and integrated visual solutions.</p></div></div>
+          <div class="role"><time>2016 — 2024</time><div><h3>Creative Coordinator</h3><p>Artisans Media</p><p>Design, video editing, VFX, 3D modelling, photoshoots, video production and branding support.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach">
+    <div class="wrap">
+      <div class="eyebrow">05 / Approach</div><h2>From first thought<br>to <span class="gold">final delivery.</span></h2>
+      <div class="approach-grid">
+        <div class="step"><b>01 / UNDERSTAND</b><h3>Listen & clarify</h3><p>Understand the objective, audience, site and practical constraints.</p></div>
+        <div class="step"><b>02 / SHAPE</b><h3>Think & develop</h3><p>Build a creative direction that connects purpose with possibility.</p></div>
+        <div class="step"><b>03 / COORDINATE</b><h3>Bring people together</h3><p>Align teams, vendors, production and execution requirements.</p></div>
+        <div class="step"><b>04 / DELIVER</b><h3>Make it happen</h3><p>Stay involved through refinement, quality checks and completion.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-box">
+      <div><div class="eyebrow">06 / Contact</div><h2>Have an idea?<br><span class="gold">Let's make it work.</span></h2></div>
+      <div><p class="contact-note">For creative consulting, brand projects, production or collaboration, let's start with a conversation.</p>
+        <!-- Replace the email address below with your preferred contact email. -->
+        <a class="btn" href="mailto:YOUR-EMAIL@example.com?subject=Creative%20Project%20Enquiry">Get in touch ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> Rajesh Kumar. All rights reserved.</span><span>Creative & Brand Consultant</span></div></footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".navlinks a").forEach(link => link.addEventListener("click", () => {
+    document.querySelector(".navlinks").classList.remove("open");
+  }));
+</script>
+</body>
+</html>
